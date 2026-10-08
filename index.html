@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskFlow: organize suas tarefas, simplifique sua rotina.">
+  <title>TaskFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#form-tarefa">Ir para o formulário</a>
+
+  <header class="cabecalho">
+    <div class="container">
+      <h1 class="logo"><span class="logo-icone" aria-hidden="true">✔</span> TaskFlow</h1>
+      <p class="subtitulo">Organize suas tarefas, simplifique sua rotina</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="cartao" aria-labelledby="titulo-nova">
+      <h2 id="titulo-nova">Nova tarefa</h2>
+      <form id="form-tarefa" novalidate>
+        <div class="campo">
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" name="titulo" maxlength="100"
+                 placeholder="Ex.: Estudar para a prova de DevOps" autocomplete="off"
+                 aria-describedby="erro-titulo">
+          <p id="erro-titulo" class="erro" role="alert"></p>
+        </div>
+        <div class="campo">
+          <label for="descricao">Descrição (opcional)</label>
+          <textarea id="descricao" name="descricao" rows="3" maxlength="300"
+                    placeholder="Detalhes que ajudam a lembrar da tarefa"></textarea>
+        </div>
+        <button type="submit" class="botao botao-primario">+ Adicionar tarefa</button>
+      </form>
+    </section>
+
+    <section class="indicadores" aria-label="Resumo das tarefas">
+      <div class="indicador">
+        <span class="indicador-numero" id="contador-total">0</span>
+        <span class="indicador-rotulo">Total</span>
+      </div>
+      <div class="indicador">
+        <span class="indicador-numero" id="contador-pendentes">0</span>
+        <span class="indicador-rotulo">Pendentes</span>
+      </div>
+      <div class="indicador">
+        <span class="indicador-numero" id="contador-concluidas">0</span>
+        <span class="indicador-rotulo">Concluídas</span>
+      </div>
+    </section>
+
+    <section class="cartao" aria-labelledby="titulo-lista">
+      <div class="lista-topo">
+        <h2 id="titulo-lista">Suas tarefas</h2>
+        <div class="filtros" role="group" aria-label="Filtrar tarefas">
+          <button type="button" class="filtro ativo" data-filtro="todas" aria-pressed="true">Todas</button>
+          <button type="button" class="filtro" data-filtro="pendentes" aria-pressed="false">Pendentes</button>
+          <button type="button" class="filtro" data-filtro="concluidas" aria-pressed="false">Concluídas</button>
+        </div>
+      </div>
+
+      <p id="mensagem-vazia" class="mensagem-vazia" hidden></p>
+      <ul id="lista-tarefas" class="lista-tarefas"></ul>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>TaskFlow &middot; projeto acadêmico. As tarefas ficam salvas somente neste navegador.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
